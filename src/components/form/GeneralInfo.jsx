@@ -1,4 +1,8 @@
-export default function GeneralInfo({ fullName, onFullNameChange }) {
+export default function GeneralInfo({
+  generalInfo,
+  onFullNameChange,
+  onEmailChange,
+}) {
   return (
     <>
       <form>
@@ -6,8 +10,16 @@ export default function GeneralInfo({ fullName, onFullNameChange }) {
         <input
           type="text"
           id="full_name"
-          value={fullName}
+          value={generalInfo.fullName}
           onChange={onFullNameChange}
+        />
+        <p></p>
+        <label htmlFor="email">Email </label>
+        <input
+          type="text"
+          id="email"
+          value={generalInfo.email}
+          onChange={onEmailChange}
         />
       </form>
     </>

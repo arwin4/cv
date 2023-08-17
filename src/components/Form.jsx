@@ -1,11 +1,12 @@
 import GeneralInfo from './form/GeneralInfo';
 
-export default function Form({ fullName, onFullNameChange }) {
+export default function Form({ generalInfo, onFullNameChange, onEmailChange }) {
   return (
     <>
       <GeneralInfo
-        fullName={fullName}
+        generalInfo={generalInfo}
         onFullNameChange={onFullNameChange}
+        onEmailChange={onEmailChange}
       ></GeneralInfo>
     </>
   );

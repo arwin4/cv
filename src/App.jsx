@@ -10,19 +10,24 @@ function App() {
     phone: '',
   });
 
-  console.log(generalInfo.fullName);
-
   function handleFullNameChange(e) {
     setGeneralInfo((draft) => {
       draft.fullName = e.target.value;
     });
   }
 
+  function handleEmailChange(e) {
+    setGeneralInfo((draft) => {
+      draft.email = e.target.value;
+    });
+  }
+
   return (
     <>
       <Form
-        fullName={generalInfo.fullName}
+        generalInfo={generalInfo}
         onFullNameChange={handleFullNameChange}
+        onEmailChange={handleEmailChange}
       ></Form>
       <GeneratedCV generalInfo={generalInfo}></GeneratedCV>
     </>

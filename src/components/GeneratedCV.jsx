@@ -3,6 +3,7 @@ export default function GeneratedCV({ generalInfo }) {
     <>
       {' '}
       <p>{generalInfo.fullName}</p>
+      <p>{generalInfo.email}</p>
     </>
   );
 }
