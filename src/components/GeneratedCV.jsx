@@ -1,3 +1,8 @@
-export default function GeneratedCV() {
-  return <></>;
+export default function GeneratedCV({ generalInfo }) {
+  return (
+    <>
+      {' '}
+      <p>{generalInfo.fullName}</p>
+    </>
+  );
 }

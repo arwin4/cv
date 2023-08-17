@@ -24,7 +24,7 @@ function App() {
         fullName={generalInfo.fullName}
         onFullNameChange={handleFullNameChange}
       ></Form>
-      <GeneratedCV></GeneratedCV>
+      <GeneratedCV generalInfo={generalInfo}></GeneratedCV>
     </>
   );
 }
