@@ -22,12 +22,19 @@ function App() {
     });
   }
 
+  function handlePhoneChange(e) {
+    setGeneralInfo((draft) => {
+      draft.phone = e.target.value;
+    });
+  }
+
   return (
     <>
       <Form
         generalInfo={generalInfo}
         onFullNameChange={handleFullNameChange}
         onEmailChange={handleEmailChange}
+        onPhoneChange={handlePhoneChange}
       ></Form>
       <GeneratedCV generalInfo={generalInfo}></GeneratedCV>
     </>

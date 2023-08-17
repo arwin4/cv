@@ -4,6 +4,7 @@ export default function GeneralInfo({
   generalInfo,
   onFullNameChange,
   onEmailChange,
+  onPhoneChange,
 }) {
   return (
     <>
@@ -18,10 +19,18 @@ export default function GeneralInfo({
         <p></p>
         <label htmlFor="email">Email </label>
         <input
-          type="text"
+          type="email"
           id="email"
           value={generalInfo.email}
           onChange={onEmailChange}
+        />
+        <p></p>
+        <label htmlFor="phone">Phone </label>
+        <input
+          type="tel"
+          id="phone"
+          value={generalInfo.phone}
+          onChange={onPhoneChange}
         />
       </form>
     </>
