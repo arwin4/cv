@@ -1,3 +1,5 @@
+/* eslint-disable react/prop-types */
+
 import GeneralInfo from './form/GeneralInfo';
 
 export default function Form({ generalInfo, onFullNameChange, onEmailChange }) {
