@@ -7,7 +7,7 @@ export default function GeneralInfo({ fullName, onFullNameChange }) {
           type="text"
           id="full_name"
           value={fullName}
-          onChange={(e) => onFullNameChange(e.target.value)}
+          onChange={onFullNameChange}
         />
       </form>
     </>

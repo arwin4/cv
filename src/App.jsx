@@ -1,15 +1,29 @@
-import { useState } from 'react';
+import { useImmer } from 'use-immer';
 import './App.css';
 import Form from './components/Form';
 import GeneratedCV from './components/GeneratedCV';
 
 function App() {
-  const [fullName, setFullName] = useState('test');
-  console.log(fullName);
+  const [generalInfo, setGeneralInfo] = useImmer({
+    fullName: '',
+    email: '',
+    phone: '',
+  });
+
+  console.log(generalInfo.fullName);
+
+  function handleFullNameChange(e) {
+    setGeneralInfo((draft) => {
+      draft.fullName = e.target.value;
+    });
+  }
 
   return (
     <>
-      <Form fullName={fullName} onFullNameChange={setFullName}></Form>
+      <Form
+        fullName={generalInfo.fullName}
+        onFullNameChange={handleFullNameChange}
+      ></Form>
       <GeneratedCV></GeneratedCV>
     </>
   );
