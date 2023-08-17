@@ -1,5 +1,7 @@
 /* eslint-disable react/prop-types */
 
+import '../../styles/GeneralInfo.css';
+
 export default function GeneralInfo({
   generalInfo,
   onFullNameChange,
@@ -7,7 +9,7 @@ export default function GeneralInfo({
   onPhoneChange,
 }) {
   return (
-    <>
+    <div className="general-info">
       <form>
         <label htmlFor="full_name">Full name </label>
         <input
@@ -33,6 +35,6 @@ export default function GeneralInfo({
           onChange={onPhoneChange}
         />
       </form>
-    </>
+    </div>
   );
 }

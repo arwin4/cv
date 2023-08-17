@@ -1,5 +1,7 @@
 /* eslint-disable react/prop-types */
 
+import '../styles/GeneratedCV.css';
+
 export default function GeneratedCV({ generalInfo }) {
   let fullNameText;
   if (generalInfo.fullName === '') {
@@ -23,11 +25,11 @@ export default function GeneratedCV({ generalInfo }) {
   }
 
   return (
-    <>
+    <div className="generated-cv">
       {' '}
       <p>{fullNameText}</p>
       <p>{emailText}</p>
       <p>{phoneText}</p>
-    </>
+    </div>
   );
 }
