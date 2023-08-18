@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 
 import GeneralInfo from './form/GeneralInfo';
+import FormSection from './FormSection';
 
 export default function Form({
   generalInfo,
@@ -9,11 +10,13 @@ export default function Form({
 }) {
   return (
     <>
-      <GeneralInfo
-        generalInfo={generalInfo}
-        handleGeneralInfoChange={handleGeneralInfoChange}
-        handleHideForm={handleHideForm}
-      ></GeneralInfo>
+      <FormSection sectionTitle="General Info">
+        <GeneralInfo
+          generalInfo={generalInfo}
+          handleGeneralInfoChange={handleGeneralInfoChange}
+        ></GeneralInfo>
+      </FormSection>
+
       <button onClick={handleHideForm}>Hide form</button>
     </>
   );
