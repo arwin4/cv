@@ -7,6 +7,7 @@ export default function Form({
   onFullNameChange,
   onEmailChange,
   onPhoneChange,
+  handleHideForm,
 }) {
   return (
     <>
@@ -15,7 +16,9 @@ export default function Form({
         onFullNameChange={onFullNameChange}
         onEmailChange={onEmailChange}
         onPhoneChange={onPhoneChange}
+        handleHideForm={handleHideForm}
       ></GeneralInfo>
+      <button onClick={handleHideForm}>Hide form</button>
     </>
   );
 }

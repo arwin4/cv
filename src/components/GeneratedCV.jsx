@@ -2,7 +2,7 @@
 
 import '../styles/GeneratedCV.css';
 
-export default function GeneratedCV({ generalInfo }) {
+export default function GeneratedCV({ generalInfo, handleShowForm }) {
   let fullNameText;
   if (generalInfo.fullName === '') {
     fullNameText = 'Ferdinand Grapperhaus';
@@ -30,6 +30,7 @@ export default function GeneratedCV({ generalInfo }) {
       <p>{fullNameText}</p>
       <p>{emailText}</p>
       <p>{phoneText}</p>
+      <button onClick={handleShowForm}>Edit</button>
     </div>
   );
 }

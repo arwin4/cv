@@ -10,6 +10,16 @@ function App() {
     phone: '',
   });
 
+  const [hideForm, setHideForm] = useImmer(false);
+
+  function handleHideForm() {
+    setHideForm(true);
+  }
+
+  function handleShowForm() {
+    setHideForm(false);
+  }
+
   function handleFullNameChange(e) {
     setGeneralInfo((draft) => {
       draft.fullName = e.target.value;
@@ -28,6 +38,17 @@ function App() {
     });
   }
 
+  if (hideForm) {
+    return (
+      <div>
+        <GeneratedCV
+          generalInfo={generalInfo}
+          handleShowForm={handleShowForm}
+        ></GeneratedCV>
+      </div>
+    );
+  }
+
   return (
     <>
       <Form
@@ -35,8 +56,8 @@ function App() {
         onFullNameChange={handleFullNameChange}
         onEmailChange={handleEmailChange}
         onPhoneChange={handlePhoneChange}
+        handleHideForm={handleHideForm}
       ></Form>
-      <GeneratedCV generalInfo={generalInfo}></GeneratedCV>
     </>
   );
 }
