@@ -4,18 +4,14 @@ import GeneralInfo from './form/GeneralInfo';
 
 export default function Form({
   generalInfo,
-  onFullNameChange,
-  onEmailChange,
-  onPhoneChange,
+  handleGeneralInfoChange,
   handleHideForm,
 }) {
   return (
     <>
       <GeneralInfo
         generalInfo={generalInfo}
-        onFullNameChange={onFullNameChange}
-        onEmailChange={onEmailChange}
-        onPhoneChange={onPhoneChange}
+        handleGeneralInfoChange={handleGeneralInfoChange}
         handleHideForm={handleHideForm}
       ></GeneralInfo>
       <button onClick={handleHideForm}>Hide form</button>

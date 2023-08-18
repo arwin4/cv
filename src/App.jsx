@@ -20,21 +20,9 @@ function App() {
     setHideForm(false);
   }
 
-  function handleFullNameChange(e) {
+  function handleGeneralInfoChange(e) {
     setGeneralInfo((draft) => {
-      draft.fullName = e.target.value;
-    });
-  }
-
-  function handleEmailChange(e) {
-    setGeneralInfo((draft) => {
-      draft.email = e.target.value;
-    });
-  }
-
-  function handlePhoneChange(e) {
-    setGeneralInfo((draft) => {
-      draft.phone = e.target.value;
+      draft[e.target.name] = e.target.value;
     });
   }
 
@@ -53,9 +41,7 @@ function App() {
     <>
       <Form
         generalInfo={generalInfo}
-        onFullNameChange={handleFullNameChange}
-        onEmailChange={handleEmailChange}
-        onPhoneChange={handlePhoneChange}
+        handleGeneralInfoChange={handleGeneralInfoChange}
         handleHideForm={handleHideForm}
       ></Form>
     </>
