@@ -6,7 +6,6 @@ export default function GeneralInfo({ generalInfo, handleGeneralInfoChange }) {
       <form>
         <div className="input-wrapper">
           <label htmlFor="full_name">Full name </label>
-
           <input
             name="fullName"
             type="text"

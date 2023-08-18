@@ -1,38 +1,42 @@
 /* eslint-disable react/prop-types */
 
 export default function Education({
-  EdcuationInfo,
+  educationInfo,
   handleEducationInfoChange,
 }) {
   return (
-    <div className="education">
+    <div className="general-info">
       <form>
-        <label htmlFor="school">School </label>
-        <input
-          name="fullName"
-          type="text"
-          id="full_name"
-          value={generalInfo.fullName}
-          onChange={handleGeneralInfoChange}
-        />
-        <p></p>
-        <label htmlFor="email">Email </label>
-        <input
-          name="email"
-          type="email"
-          id="email"
-          value={generalInfo.email}
-          onChange={handleGeneralInfoChange}
-        />
-        <p></p>
-        <label htmlFor="phone">Phone </label>
-        <input
-          name="phone"
-          type="tel"
-          id="phone"
-          value={generalInfo.phone}
-          onChange={handleGeneralInfoChange}
-        />
+        <div className="input-wrapper">
+          <label htmlFor="school">School </label>
+          <input
+            name="school"
+            type="text"
+            id="school"
+            value={educationInfo.school}
+            onChange={handleEducationInfoChange}
+          />
+        </div>
+        <div className="input-wrapper">
+          <label htmlFor="study-title">Title of study </label>
+          <input
+            name="studyTitle"
+            type="text"
+            id="study-title"
+            value={educationInfo.email}
+            onChange={handleEducationInfoChange}
+          />
+        </div>
+        <div className="input-wrapper">
+          <label htmlFor="graduation-year">Graduation year </label>
+          <input
+            name="graduationYear"
+            type="text"
+            id="graduation-year"
+            value={educationInfo.phone}
+            onChange={handleEducationInfoChange}
+          />
+        </div>
       </form>
     </div>
   );

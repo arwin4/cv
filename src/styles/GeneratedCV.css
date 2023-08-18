@@ -1,3 +1,6 @@
-.generated-cv {
+.generated-cv > * {
   background-color: aliceblue;
+  display: grid;
+  column-gap: 20px;
+  grid-auto-flow: column;
 }

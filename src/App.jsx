@@ -10,6 +10,24 @@ function App() {
     phone: '',
   });
 
+  function handleGeneralInfoChange(e) {
+    setGeneralInfo((draft) => {
+      draft[e.target.name] = e.target.value;
+    });
+  }
+
+  const [educationInfo, setEducationInfo] = useImmer({
+    school: '',
+    studyTitle: '',
+    graduationYear: '',
+  });
+
+  function handleEducationInfoChange(e) {
+    setEducationInfo((draft) => {
+      draft[e.target.name] = e.target.value;
+    });
+  }
+
   const [hideForm, setHideForm] = useImmer(false);
 
   function handleHideForm() {
@@ -20,17 +38,12 @@ function App() {
     setHideForm(false);
   }
 
-  function handleGeneralInfoChange(e) {
-    setGeneralInfo((draft) => {
-      draft[e.target.name] = e.target.value;
-    });
-  }
-
   if (hideForm) {
     return (
       <div>
         <GeneratedCV
           generalInfo={generalInfo}
+          educationInfo={educationInfo}
           handleShowForm={handleShowForm}
         ></GeneratedCV>
       </div>
@@ -42,6 +55,8 @@ function App() {
       <Form
         generalInfo={generalInfo}
         handleGeneralInfoChange={handleGeneralInfoChange}
+        educationInfo={educationInfo}
+        handleEducationInfoChange={handleEducationInfoChange}
         handleHideForm={handleHideForm}
       ></Form>
     </>
