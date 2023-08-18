@@ -1,0 +1,16 @@
+h1 {
+  font-size: 1.5rem;
+}
+
+form {
+  display: grid;
+  row-gap: 8px;
+
+  input {
+    font-size: 1rem;
+  }
+
+  .input-wrapper {
+    display: grid;
+  }
+}

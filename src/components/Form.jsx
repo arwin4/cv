@@ -10,7 +10,7 @@ export default function Form({
 }) {
   return (
     <>
-      <FormSection sectionTitle="General Info">
+      <FormSection className="general-info" sectionTitle="General Info">
         <GeneralInfo
           generalInfo={generalInfo}
           handleGeneralInfoChange={handleGeneralInfoChange}
