@@ -2,7 +2,6 @@ import { useImmer } from 'use-immer';
 import './App.css';
 import Form from './components/Form';
 import GeneratedCV from './components/GeneratedCV';
-import { produce } from 'immer';
 
 function App() {
   const [generalInfo, setGeneralInfo] = useImmer({
