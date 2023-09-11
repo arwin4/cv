@@ -4,14 +4,27 @@ export default function ExperienceOverview({
   experienceList,
   showExperienceForm,
 }) {
+  const experiences = experienceList.map((experience) => (
+    <li key={experience.id}>
+      {experience.company}
+      <button className="edit">Edit</button>
+      <button className="delete">Delete</button>
+    </li>
+  ));
+
   return (
-    <div className="experience-list">
+    <div>
       <h2>
-        You&apos;ve added {experienceList?.length ? experienceList.length : '0'}{' '}
-        {experienceList?.length === 1 ? 'job' : 'jobs'}. You may add up to 3
-        jobs or other relevant work experiences.
+        {experienceList?.length ? experienceList.length : '0'}{' '}
+        {experienceList?.length === 1 ? 'job' : 'jobs'} added. You may add{' '}
+        {3 - experienceList?.length} more.
       </h2>
-      <button onClick={showExperienceForm}>Add a work experience</button>
+
+      <ul>{experiences}</ul>
+
+      {experienceList.length < 3 && (
+        <button onClick={showExperienceForm}>Add a work experience</button>
+      )}
     </div>
   );
 }

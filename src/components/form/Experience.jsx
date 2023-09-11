@@ -57,7 +57,7 @@ export default function Experience({ experienceInfo, handleExperienceSubmit }) {
           />
         </div>
         <button type="submit" className="submit-experience">
-          Add this experience
+          Add this experience (you can edit it later)
         </button>
       </form>
     </div>

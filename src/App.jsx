@@ -35,11 +35,11 @@ function App() {
     const formData = new FormData(e.target);
     const formProps = Object.fromEntries(formData);
 
+    formProps.id = self.crypto.randomUUID();
+
     updateExperienceList((draft) => {
       draft.push(formProps);
     });
-
-    console.log(experienceList);
   }
 
   const [hideForm, setHideForm] = useImmer(false);
