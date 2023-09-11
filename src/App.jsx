@@ -42,6 +42,13 @@ function App() {
     });
   }
 
+  function deleteExperience(id) {
+    const updatedList = experienceList.filter(
+      (experience) => experience.id !== id,
+    );
+    updateExperienceList(updatedList);
+  }
+
   const [hideForm, setHideForm] = useImmer(false);
 
   function handleHideForm() {
@@ -73,6 +80,7 @@ function App() {
         handleEducationInfoChange={handleEducationInfoChange}
         experienceList={experienceList}
         addExperience={addExperience}
+        deleteExperience={deleteExperience}
         handleHideForm={handleHideForm}
       ></Form>
     </>

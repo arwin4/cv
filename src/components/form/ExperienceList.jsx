@@ -3,12 +3,18 @@
 export default function ExperienceOverview({
   experienceList,
   showExperienceForm,
+  deleteExperience,
 }) {
   const experiences = experienceList.map((experience) => (
     <li key={experience.id}>
       {experience.company}
       <button className="edit">Edit</button>
-      <button className="delete">Delete</button>
+      <button
+        className="delete"
+        onClick={() => deleteExperience(experience.id)}
+      >
+        Delete
+      </button>
     </li>
   ));
 

@@ -14,6 +14,7 @@ export default function Form({
   handleEducationInfoChange,
   experienceList,
   addExperience,
+  deleteExperience,
   handleHideForm,
 }) {
   const [experienceFormVisible, setExperienceFormVisibility] = useImmer(false);
@@ -46,6 +47,7 @@ export default function Form({
       <ExperienceOverview
         showExperienceForm={showExperienceForm}
         experienceList={experienceList}
+        deleteExperience={deleteExperience}
       ></ExperienceOverview>
     );
   }
