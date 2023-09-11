@@ -2,7 +2,7 @@
 
 export default function ExperienceOverview({
   experienceList,
-  showExperienceForm,
+  showExperienceForm: showNewExperienceForm,
   deleteExperience,
 }) {
   const experiences = experienceList.map((experience) => (
@@ -29,7 +29,7 @@ export default function ExperienceOverview({
       <ul>{experiences}</ul>
 
       {experienceList.length < 3 && (
-        <button onClick={showExperienceForm}>Add a work experience</button>
+        <button onClick={showNewExperienceForm}>Add a work experience</button>
       )}
     </div>
   );

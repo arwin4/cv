@@ -19,18 +19,18 @@ export default function Form({
 }) {
   const [experienceFormVisible, setExperienceFormVisibility] = useImmer(false);
 
-  function showExperienceForm() {
+  function showNewExperienceForm() {
     setExperienceFormVisibility(true);
   }
 
-  function hideExperienceForm() {
+  function hideNewExperienceForm() {
     setExperienceFormVisibility(false);
   }
 
   function handleExperienceSubmit(e) {
     e.preventDefault();
     addExperience(e);
-    hideExperienceForm();
+    hideNewExperienceForm();
   }
 
   let experienceSection;
@@ -39,13 +39,13 @@ export default function Form({
       <Experience
         experienceInfo={experienceList}
         handleExperienceSubmit={handleExperienceSubmit}
-        hideExperienceForm={hideExperienceForm}
+        hideNewExperienceForm={hideNewExperienceForm}
       ></Experience>
     );
   } else {
     experienceSection = (
       <ExperienceOverview
-        showExperienceForm={showExperienceForm}
+        showExperienceForm={showNewExperienceForm}
         experienceList={experienceList}
         deleteExperience={deleteExperience}
       ></ExperienceOverview>
