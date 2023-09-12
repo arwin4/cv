@@ -2,6 +2,11 @@ h1 {
   font-size: 1.5rem;
 }
 
+h2 {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
 form {
   display: grid;
   row-gap: 8px;
