@@ -22,8 +22,10 @@ export default function ExperienceOverview({
     <div>
       <h2>
         {experienceList?.length ? experienceList.length : '0'}{' '}
-        {experienceList?.length === 1 ? 'job' : 'jobs'} added. You may add{' '}
-        {3 - experienceList?.length} more.
+        {experienceList?.length === 1 ? 'job' : 'jobs'} added.{' '}
+        {experienceList?.length >= 3
+          ? 'Replace a job to add a different one.'
+          : `You may add ${3 - experienceList?.length} more.`}
       </h2>
 
       <ul>{experiences}</ul>
