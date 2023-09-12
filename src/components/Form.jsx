@@ -33,24 +33,14 @@ export default function Form({
     hideNewExperienceForm();
   }
 
-  let experienceSection;
-  if (experienceFormVisible) {
-    experienceSection = (
+  if (experienceFormVisible)
+    return (
       <Experience
         experienceInfo={experienceList}
         handleExperienceSubmit={handleExperienceSubmit}
         hideNewExperienceForm={hideNewExperienceForm}
       ></Experience>
     );
-  } else {
-    experienceSection = (
-      <ExperienceOverview
-        showExperienceForm={showNewExperienceForm}
-        experienceList={experienceList}
-        deleteExperience={deleteExperience}
-      ></ExperienceOverview>
-    );
-  }
 
   return (
     <>
@@ -69,7 +59,11 @@ export default function Form({
       </FormSection>
 
       <FormSection className="experience-info" sectionTitle="Work history">
-        {experienceSection}
+        <ExperienceOverview
+          showExperienceForm={showNewExperienceForm}
+          experienceList={experienceList}
+          deleteExperience={deleteExperience}
+        ></ExperienceOverview>
       </FormSection>
 
       <button onClick={handleHideForm}>Hide form</button>

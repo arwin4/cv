@@ -1,9 +1,14 @@
 /* eslint-disable react/prop-types */
 
-export default function Experience({ experienceInfo, handleExperienceSubmit }) {
+export default function Experience({
+  experienceInfo,
+  handleExperienceSubmit,
+  hideNewExperienceForm,
+}) {
   return (
     <div className="experience-info">
-      <form onSubmit={handleExperienceSubmit}>
+      <h1>Add a new work experience</h1>
+      <form id="experience-form" onSubmit={handleExperienceSubmit}>
         <div className="input-wrapper">
           <label htmlFor="company">Company </label>
           <input
@@ -56,10 +61,17 @@ export default function Experience({ experienceInfo, handleExperienceSubmit }) {
             value={experienceInfo.employmentEndDate}
           />
         </div>
-        <button type="submit" className="submit-experience">
-          Add this experience (you can edit it later)
-        </button>
       </form>
+      <button className="cancel" onClick={hideNewExperienceForm}>
+        Cancel
+      </button>
+      <button
+        form="experience-form"
+        type="submit"
+        className="submit-experience"
+      >
+        Add this experience (you can edit it later)
+      </button>
     </div>
   );
 }
