@@ -8,7 +8,7 @@ export default function handleEditJobButton({
   return (
     <div className="edit-job">
       <h1>Editing work experience...</h1>
-      <form id="edit-job-form">
+      <form id="edit-job-form" onSubmit={hideEditJobForm}>
         <div className="input-wrapper">
           <label htmlFor="company">Company </label>
           <input
@@ -67,14 +67,8 @@ export default function handleEditJobButton({
           />
         </div>
       </form>
-      <button className="cancel">Cancel</button>
-      <button
-        form="job-form"
-        // type="submit"
-        className="submit-job"
-        onClick={hideEditJobForm}
-      >
-        Submit
+      <button form="edit-job-form" className="submit-job">
+        Save and return
       </button>
     </div>
   );
