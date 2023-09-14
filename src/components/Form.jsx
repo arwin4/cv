@@ -3,9 +3,9 @@
 import FormSection from './FormSection';
 import GeneralInfo from './form/GeneralInfo';
 import Education from './form/Education';
-import ExperienceOverview from './form/ExperienceList';
-import Experience from './form/Experience';
-import EditExperience from './form/EditExperience';
+import JobOverview from './form/JobList';
+import Job from './form/Job';
+import EditJob from './form/EditJob';
 import { useImmer } from 'use-immer';
 import { produce } from 'immer';
 
@@ -14,72 +14,69 @@ export default function Form({
   handleGeneralInfoChange,
   educationInfo,
   handleEducationInfoChange,
-  experienceList,
-  addExperience,
-  updateExperienceList,
-  deleteExperience,
+  jobInfo,
+  addJob,
+  setJobList,
+  deleteJob,
   handleHideForm,
 }) {
-  const [experienceFormVisible, setExperienceFormVisibility] = useImmer(false);
+  const [jobFormVisible, setJobFormVisibility] = useImmer(false);
 
-  function showNewExperienceForm() {
-    setExperienceFormVisibility(true);
+  function showNewJobForm() {
+    setJobFormVisibility(true);
   }
 
-  function hideNewExperienceForm() {
-    setExperienceFormVisibility(false);
+  function hideNewJobForm() {
+    setJobFormVisibility(false);
   }
 
-  function handleExperienceSubmit(e) {
+  function handleJobSubmit(e) {
     e.preventDefault();
-    addExperience(e);
-    hideNewExperienceForm();
+    addJob(e);
+    hideNewJobForm();
   }
 
-  const [editExperienceFormVisible, setEditExperienceFormVisibility] =
-    useImmer(false);
+  const [editJobFormVisible, setEditJobFormVisibility] = useImmer(false);
 
-  function showEditExperienceForm() {
-    setEditExperienceFormVisibility(true);
+  function showEditJobForm() {
+    setEditJobFormVisibility(true);
   }
 
-  function hideEditExperienceForm() {
-    setEditExperienceFormVisibility(false);
+  function hideEditJobForm() {
+    setEditJobFormVisibility(false);
   }
 
-  const [experienceToEdit, setExperienceToEdit] = useImmer(null);
+  const [jobToEdit, setJobToEdit] = useImmer(null);
 
-  function handleEditExperience(id) {
-    const experience = experienceList.find(
-      (experience) => experience.id === id,
-    );
-    setExperienceToEdit(experience);
-    showEditExperienceForm();
+  function handleEditJobButton(id) {
+    const job = jobInfo.find((job) => job.id === id);
+    setJobToEdit(job);
+    showEditJobForm();
   }
 
-  function handleExperienceChange(id, e) {
-    const updatedExperiences = produce(experienceList, (draft) => {
-      const index = draft.findIndex((experience) => experience.id === id);
+  function handleJobChange(id, e) {
+    const updatedJobs = produce(jobInfo, (draft) => {
+      const index = draft.findIndex((job) => job.id === id);
       if (index !== -1) draft[index][e.target.id] = e.target.value;
     });
-    updateExperienceList(updatedExperiences);
+    setJobList(updatedJobs);
   }
 
-  if (experienceFormVisible)
+  if (jobFormVisible)
     return (
-      <Experience
-        handleExperienceSubmit={handleExperienceSubmit}
-        hideNewExperienceForm={hideNewExperienceForm}
-      ></Experience>
+      <Job
+        handleJobSubmit={handleJobSubmit}
+        hideNewJobForm={hideNewJobForm}
+      ></Job>
     );
 
-  if (editExperienceFormVisible) {
+  if (editJobFormVisible) {
     return (
-      <EditExperience
-        experienceToEdit={experienceToEdit}
-        handleExperienceChange={handleExperienceChange}
-        hideEditExperienceForm={hideEditExperienceForm}
-      ></EditExperience>
+      <EditJob
+        jobToEdit={jobToEdit}
+        handleJobChange={handleJobChange}
+        hideEditJobForm={hideEditJobForm}
+      ></EditJob>
     );
   }
 
@@ -99,13 +96,13 @@ export default function Form({
         ></Education>
       </FormSection>
 
-      <FormSection className="experience-info" sectionTitle="Work history">
-        <ExperienceOverview
-          showExperienceForm={showNewExperienceForm}
-          experienceList={experienceList}
-          deleteExperience={deleteExperience}
-          handleEditExperience={handleEditExperience}
-        ></ExperienceOverview>
+      <FormSection className="job-info" sectionTitle="Work history">
+        <JobOverview
+          showNewJobForm={showNewJobForm}
+          jobInfo={jobInfo}
+          deleteJob={deleteJob}
+          handleEditJobButton={handleEditJobButton}
+        ></JobOverview>
       </FormSection>
 
       <button onClick={handleHideForm}>Hide form</button>

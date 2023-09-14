@@ -1,22 +1,22 @@
 /* eslint-disable react/prop-types */
 
-export default function handleEditExperience({
-  experienceToEdit,
-  handleExperienceChange,
-  hideEditExperienceForm,
+export default function handleEditJobButton({
+  jobToEdit,
+  handleJobChange,
+  hideEditJobForm,
 }) {
   return (
-    <div className="edit-experience">
+    <div className="edit-job">
       <h1>Editing work experience...</h1>
-      <form id="edit-experience-form">
+      <form id="edit-job-form">
         <div className="input-wrapper">
           <label htmlFor="company">Company </label>
           <input
             name="company"
             type="text"
             id="company"
-            defaultValue={experienceToEdit.company}
-            onChange={(e) => handleExperienceChange(experienceToEdit.id, e)}
+            defaultValue={jobToEdit.company}
+            onChange={(e) => handleJobChange(jobToEdit.id, e)}
           />
         </div>
         <div className="input-wrapper">
@@ -25,8 +25,8 @@ export default function handleEditExperience({
             name="position"
             type="text"
             id="position"
-            defaultValue={experienceToEdit.position}
-            onChange={(e) => handleExperienceChange(experienceToEdit.id, e)}
+            defaultValue={jobToEdit.position}
+            onChange={(e) => handleJobChange(jobToEdit.id, e)}
           />
         </div>
         <div className="input-wrapper">
@@ -35,8 +35,8 @@ export default function handleEditExperience({
             name="responsibilities"
             type="text"
             id="responsibilities"
-            defaultValue={experienceToEdit.responsibilities}
-            onChange={(e) => handleExperienceChange(experienceToEdit.id, e)}
+            defaultValue={jobToEdit.responsibilities}
+            onChange={(e) => handleJobChange(jobToEdit.id, e)}
           />
         </div>{' '}
         <div className="input-wrapper">
@@ -45,8 +45,8 @@ export default function handleEditExperience({
             name="employmentStartDate"
             type="text"
             id="employment-start-date"
-            defaultValue={experienceToEdit.employmentStartDate}
-            onChange={(e) => handleExperienceChange(experienceToEdit.id, e)}
+            defaultValue={jobToEdit.employmentStartDate}
+            onChange={(e) => handleJobChange(jobToEdit.id, e)}
           />
         </div>
         <div className="input-wrapper">
@@ -62,17 +62,17 @@ export default function handleEditExperience({
             name="employmentEndDate"
             type="text"
             id="employment-end-date"
-            defaultValue={experienceToEdit.employmentEndDate}
-            onChange={(e) => handleExperienceChange(experienceToEdit.id, e)}
+            defaultValue={jobToEdit.employmentEndDate}
+            onChange={(e) => handleJobChange(jobToEdit.id, e)}
           />
         </div>
       </form>
       <button className="cancel">Cancel</button>
       <button
-        form="experience-form"
+        form="job-form"
         // type="submit"
-        className="submit-experience"
-        onClick={hideEditExperienceForm}
+        className="submit-job"
+        onClick={hideEditJobForm}
       >
         Submit
       </button>

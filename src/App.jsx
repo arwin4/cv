@@ -28,25 +28,23 @@ function App() {
     });
   }
 
-  const [experienceList, updateExperienceList] = useImmer([]);
+  const [jobInfo, setJobList] = useImmer([]);
 
-  function addExperience(e) {
+  function addJob(e) {
     // Source: https://stackoverflow.com/a/66407161
     const formData = new FormData(e.target);
     const formProps = Object.fromEntries(formData);
 
     formProps.id = self.crypto.randomUUID();
 
-    updateExperienceList((draft) => {
+    setJobList((draft) => {
       draft.push(formProps);
     });
   }
 
-  function deleteExperience(id) {
-    const updatedList = experienceList.filter(
-      (experience) => experience.id !== id,
-    );
-    updateExperienceList(updatedList);
+  function deleteJob(id) {
+    const updatedList = jobInfo.filter((job) => job.id !== id);
+    setJobList(updatedList);
   }
 
   const [hideForm, setHideForm] = useImmer(false);
@@ -78,10 +76,10 @@ function App() {
         handleGeneralInfoChange={handleGeneralInfoChange}
         educationInfo={educationInfo}
         handleEducationInfoChange={handleEducationInfoChange}
-        experienceList={experienceList}
-        addExperience={addExperience}
-        updateExperienceList={updateExperienceList}
-        deleteExperience={deleteExperience}
+        jobInfo={jobInfo}
+        addJob={addJob}
+        setJobList={setJobList}
+        deleteJob={deleteJob}
         handleHideForm={handleHideForm}
       ></Form>
     </>
