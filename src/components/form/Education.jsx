@@ -13,7 +13,7 @@ export default function Education({
             name="school"
             type="text"
             id="school"
-            value={educationInfo.school}
+            defaultValue={educationInfo.school}
             onChange={handleEducationInfoChange}
           />
         </div>
@@ -23,7 +23,7 @@ export default function Education({
             name="studyTitle"
             type="text"
             id="study-title"
-            value={educationInfo.email}
+            defaultValue={educationInfo.studyTitle}
             onChange={handleEducationInfoChange}
           />
         </div>
@@ -33,7 +33,7 @@ export default function Education({
             name="graduationYear"
             type="text"
             id="graduation-year"
-            value={educationInfo.phone}
+            defaultValue={educationInfo.graduationYear}
             onChange={handleEducationInfoChange}
           />
         </div>

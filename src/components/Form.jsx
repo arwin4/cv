@@ -11,15 +11,35 @@ import { produce } from 'immer';
 
 export default function Form({
   generalInfo,
-  handleGeneralInfoChange,
+  setGeneralInfo,
   educationInfo,
-  handleEducationInfoChange,
+  setEducationInfo,
   jobInfo,
   addJob,
   setJobList,
   deleteJob,
   handleHideForm,
 }) {
+  function handleGeneralInfoChange(e) {
+    setGeneralInfo((draft) => {
+      draft[e.target.name] = e.target.value;
+    });
+  }
+
+  function handleEducationInfoChange(e) {
+    setEducationInfo((draft) => {
+      draft[e.target.name] = e.target.value;
+    });
+  }
+
+  function handleJobChange(id, e) {
+    const updatedJobs = produce(jobInfo, (draft) => {
+      const index = draft.findIndex((job) => job.id === id);
+      if (index !== -1) draft[index][e.target.id] = e.target.value;
+    });
+    setJobList(updatedJobs);
+  }
+
   const [jobFormVisible, setJobFormVisibility] = useImmer(false);
 
   function showNewJobForm() {
@@ -52,14 +72,6 @@ export default function Form({
     const job = jobInfo.find((job) => job.id === id);
     setJobToEdit(job);
     showEditJobForm();
-  }
-
-  function handleJobChange(id, e) {
-    const updatedJobs = produce(jobInfo, (draft) => {
-      const index = draft.findIndex((job) => job.id === id);
-      if (index !== -1) draft[index][e.target.id] = e.target.value;
-    });
-    setJobList(updatedJobs);
   }
 
   if (jobFormVisible)

@@ -10,23 +10,11 @@ function App() {
     phone: '',
   });
 
-  function handleGeneralInfoChange(e) {
-    setGeneralInfo((draft) => {
-      draft[e.target.name] = e.target.value;
-    });
-  }
-
   const [educationInfo, setEducationInfo] = useImmer({
     school: '',
     studyTitle: '',
     graduationYear: '',
   });
-
-  function handleEducationInfoChange(e) {
-    setEducationInfo((draft) => {
-      draft[e.target.name] = e.target.value;
-    });
-  }
 
   const [jobInfo, setJobList] = useImmer([]);
 
@@ -73,9 +61,9 @@ function App() {
     <>
       <Form
         generalInfo={generalInfo}
-        handleGeneralInfoChange={handleGeneralInfoChange}
+        setGeneralInfo={setGeneralInfo}
         educationInfo={educationInfo}
-        handleEducationInfoChange={handleEducationInfoChange}
+        setEducationInfo={setEducationInfo}
         jobInfo={jobInfo}
         addJob={addJob}
         setJobList={setJobList}
