@@ -35,23 +35,23 @@ function App() {
     setJobList(updatedList);
   }
 
-  const [hideForm, setHideForm] = useImmer(false);
+  const [CVVisible, setCVVisibility] = useImmer(false);
 
-  function handleHideForm() {
-    setHideForm(true);
+  function showCV() {
+    setCVVisibility(true);
   }
 
-  function handleShowForm() {
-    setHideForm(false);
+  function hideCV() {
+    setCVVisibility(false);
   }
 
-  if (hideForm) {
+  if (CVVisible) {
     return (
       <div>
         <GeneratedCV
           generalInfo={generalInfo}
           educationInfo={educationInfo}
-          handleShowForm={handleShowForm}
+          hideCV={hideCV}
         ></GeneratedCV>
       </div>
     );
@@ -68,7 +68,7 @@ function App() {
         addJob={addJob}
         setJobList={setJobList}
         deleteJob={deleteJob}
-        handleHideForm={handleHideForm}
+        showCV={showCV}
       ></Form>
     </>
   );

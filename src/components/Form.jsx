@@ -18,7 +18,7 @@ export default function Form({
   addJob,
   setJobList,
   deleteJob,
-  handleHideForm,
+  showCV,
 }) {
   function handleGeneralInfoChange(e) {
     setGeneralInfo((draft) => {
@@ -117,7 +117,7 @@ export default function Form({
         ></JobOverview>
       </FormSection>
 
-      <button onClick={handleHideForm}>Hide form</button>
+      <button onClick={showCV}>Generate CV</button>
     </>
   );
 }

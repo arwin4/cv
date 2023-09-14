@@ -2,11 +2,7 @@
 
 import '../styles/GeneratedCV.css';
 
-export default function GeneratedCV({
-  generalInfo,
-  educationInfo,
-  handleShowForm,
-}) {
+export default function GeneratedCV({ generalInfo, educationInfo, hideCV }) {
   return (
     <div className="generated-cv">
       <div className="general-info">
@@ -35,7 +31,7 @@ export default function GeneratedCV({
         </div>
       </div>
 
-      <button onClick={handleShowForm}>Edit</button>
+      <button onClick={hideCV}>Edit</button>
     </div>
   );
 }
