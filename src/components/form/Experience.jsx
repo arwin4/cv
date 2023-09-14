@@ -1,7 +1,6 @@
 /* eslint-disable react/prop-types */
 
 export default function Experience({
-  experienceInfo,
   handleExperienceSubmit,
   hideNewExperienceForm,
 }) {
@@ -11,30 +10,15 @@ export default function Experience({
       <form id="experience-form" onSubmit={handleExperienceSubmit}>
         <div className="input-wrapper">
           <label htmlFor="company">Company </label>
-          <input
-            name="company"
-            type="text"
-            id="company"
-            value={experienceInfo.company}
-          />
+          <input name="company" type="text" id="company" />
         </div>
         <div className="input-wrapper">
           <label htmlFor="position">Position </label>
-          <input
-            name="position"
-            type="text"
-            id="position"
-            value={experienceInfo.position}
-          />
+          <input name="position" type="text" id="position" />
         </div>
         <div className="input-wrapper">
           <label htmlFor="responsibilities">Responsibilities </label>
-          <input
-            name="responsibilities"
-            type="text"
-            id="responsibilities"
-            value={experienceInfo.responsibilities}
-          />
+          <input name="responsibilities" type="text" id="responsibilities" />
         </div>{' '}
         <div className="input-wrapper">
           <label htmlFor="employment-start-date">Employment start date </label>
@@ -42,7 +26,6 @@ export default function Experience({
             name="employmentStartDate"
             type="text"
             id="employment-start-date"
-            value={experienceInfo.employmentStartDate}
           />
         </div>
         <div className="input-wrapper">
@@ -58,7 +41,6 @@ export default function Experience({
             name="employmentEndDate"
             type="text"
             id="employment-end-date"
-            value={experienceInfo.employmentEndDate}
           />
         </div>
       </form>

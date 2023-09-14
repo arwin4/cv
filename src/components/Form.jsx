@@ -5,7 +5,9 @@ import GeneralInfo from './form/GeneralInfo';
 import Education from './form/Education';
 import ExperienceOverview from './form/ExperienceList';
 import Experience from './form/Experience';
+import EditExperience from './form/EditExperience';
 import { useImmer } from 'use-immer';
+import { produce } from 'immer';
 
 export default function Form({
   generalInfo,
@@ -14,6 +16,7 @@ export default function Form({
   handleEducationInfoChange,
   experienceList,
   addExperience,
+  updateExperienceList,
   deleteExperience,
   handleHideForm,
 }) {
@@ -33,14 +36,52 @@ export default function Form({
     hideNewExperienceForm();
   }
 
+  const [editExperienceFormVisible, setEditExperienceFormVisibility] =
+    useImmer(false);
+
+  function showEditExperienceForm() {
+    setEditExperienceFormVisibility(true);
+  }
+
+  function hideEditExperienceForm() {
+    setEditExperienceFormVisibility(false);
+  }
+
+  const [experienceToEdit, setExperienceToEdit] = useImmer(null);
+
+  function handleEditExperience(id) {
+    const experience = experienceList.find(
+      (experience) => experience.id === id,
+    );
+    setExperienceToEdit(experience);
+    showEditExperienceForm();
+  }
+
+  function handleExperienceChange(id, e) {
+    const updatedExperiences = produce(experienceList, (draft) => {
+      const index = draft.findIndex((experience) => experience.id === id);
+      if (index !== -1) draft[index][e.target.id] = e.target.value;
+    });
+    updateExperienceList(updatedExperiences);
+  }
+
   if (experienceFormVisible)
     return (
       <Experience
-        experienceInfo={experienceList}
         handleExperienceSubmit={handleExperienceSubmit}
         hideNewExperienceForm={hideNewExperienceForm}
       ></Experience>
     );
+
+  if (editExperienceFormVisible) {
+    return (
+      <EditExperience
+        experienceToEdit={experienceToEdit}
+        handleExperienceChange={handleExperienceChange}
+        hideEditExperienceForm={hideEditExperienceForm}
+      ></EditExperience>
+    );
+  }
 
   return (
     <>
@@ -63,6 +104,7 @@ export default function Form({
           showExperienceForm={showNewExperienceForm}
           experienceList={experienceList}
           deleteExperience={deleteExperience}
+          handleEditExperience={handleEditExperience}
         ></ExperienceOverview>
       </FormSection>
 

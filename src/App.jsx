@@ -80,6 +80,7 @@ function App() {
         handleEducationInfoChange={handleEducationInfoChange}
         experienceList={experienceList}
         addExperience={addExperience}
+        updateExperienceList={updateExperienceList}
         deleteExperience={deleteExperience}
         handleHideForm={handleHideForm}
       ></Form>
