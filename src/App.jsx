@@ -5,18 +5,42 @@ import GeneratedCV from './components/GeneratedCV';
 
 function App() {
   const [generalInfo, setGeneralInfo] = useImmer({
-    fullName: '',
-    email: '',
-    phone: '',
+    fullName: 'John Doe',
+    email: 'johndoe@example.com',
+    phone: '555-123-4567',
   });
 
   const [educationInfo, setEducationInfo] = useImmer({
-    school: '',
-    studyTitle: '',
-    graduationYear: '',
+    school: 'Example University',
+    studyTitle: 'Computer Science',
+    graduationYear: '2022',
   });
 
-  const [jobInfo, setJobList] = useImmer([]);
+  const testJobInfo = [
+    {
+      company: 'Business Corp.',
+      position: 'Advisor',
+      responsibilities: 'Doing important things',
+      employmentStartDate: '1996',
+      employmentEndDate: '2023',
+      id: 'onlyfortesting',
+    },
+  ];
+
+  // const [generalInfo, setGeneralInfo] = useImmer({
+  //   fullName: '',
+  //   email: '',
+  //   phone: '',
+  // });
+
+  // const [educationInfo, setEducationInfo] = useImmer({
+  //   school: '',
+  //   studyTitle: '',
+  //   graduationYear: '',
+  // });
+
+  // const [jobInfo, setJobList] = useImmer([]);
+  const [jobInfo, setJobList] = useImmer(testJobInfo);
 
   function addJob(e) {
     // Source: https://stackoverflow.com/a/66407161
@@ -51,6 +75,7 @@ function App() {
         <GeneratedCV
           generalInfo={generalInfo}
           educationInfo={educationInfo}
+          jobInfo={jobInfo}
           hideCV={hideCV}
         ></GeneratedCV>
       </div>
