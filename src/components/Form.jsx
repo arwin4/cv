@@ -35,7 +35,7 @@ export default function Form({
   function handleJobChange(id, e) {
     const updatedJobs = produce(jobInfo, (draft) => {
       const index = draft.findIndex((job) => job.id === id);
-      if (index !== -1) draft[index][e.target.id] = e.target.value;
+      if (index !== -1) draft[index][e.target.name] = e.target.value;
     });
     setJobList(updatedJobs);
   }
