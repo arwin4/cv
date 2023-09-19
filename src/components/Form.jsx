@@ -8,6 +8,7 @@ import Job from './form/Job';
 import EditJob from './form/EditJob';
 import { useImmer } from 'use-immer';
 import { produce } from 'immer';
+import { Icon } from '@iconify/react';
 
 export default function Form({
   generalInfo,
@@ -93,21 +94,19 @@ export default function Form({
   }
 
   return (
-    <>
+    <div className="form">
       <FormSection className="general-info" sectionTitle="Personal information">
         <GeneralInfo
           generalInfo={generalInfo}
           handleGeneralInfoChange={handleGeneralInfoChange}
         ></GeneralInfo>
       </FormSection>
-
       <FormSection className="education-info" sectionTitle="Education">
         <Education
           educationInfo={educationInfo}
           handleEducationInfoChange={handleEducationInfoChange}
         ></Education>
       </FormSection>
-
       <FormSection className="job-info" sectionTitle="Work history">
         <JobOverview
           showNewJobForm={showNewJobForm}
@@ -116,8 +115,19 @@ export default function Form({
           handleEditJobButton={handleEditJobButton}
         ></JobOverview>
       </FormSection>
-
-      <button onClick={showCV}>Generate CV</button>
-    </>
+      <div className="generate-cv-wrapper">
+        <span className="generate-cv-button" type="button" onClick={showCV}>
+          <Icon
+            className="generate-cv-icon"
+            aria-label="Generate CV"
+            icon="lucide:sparkles"
+          />
+          Generate CV!
+        </span>
+        <div className="revision-disclaimer">
+          You&apos;ll be able to edit your CV after generating.
+        </div>
+      </div>
+    </div>
   );
 }

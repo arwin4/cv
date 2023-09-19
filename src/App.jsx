@@ -84,6 +84,8 @@ function App() {
 
   return (
     <>
+      <h1>CV generator</h1>
+      <h2>Generate a simple CV in minutes</h2>
       <Form
         generalInfo={generalInfo}
         setGeneralInfo={setGeneralInfo}

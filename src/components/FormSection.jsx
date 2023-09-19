@@ -4,8 +4,8 @@ import '../styles/FormSection.css';
 
 export default function FormSection({ sectionTitle, children }) {
   return (
-    <div className="form_section">
-      <h1>{sectionTitle}</h1>
+    <div className="form-section">
+      <h3 className="section-title">{sectionTitle}</h3>
       {children}
     </div>
   );
