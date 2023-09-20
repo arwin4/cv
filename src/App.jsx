@@ -2,45 +2,69 @@ import { useImmer } from 'use-immer';
 import './App.css';
 import Form from './components/Form';
 import GeneratedCV from './components/GeneratedCV';
+import { useCallback } from 'react';
 
 function App() {
-  const [generalInfo, setGeneralInfo] = useImmer({
-    fullName: 'John Doe',
-    email: 'johndoe@example.com',
-    phone: '555-123-4567',
-  });
+  const emptyInfo = {
+    general: { fullName: '', email: '', phone: '' },
+    education: { school: '', studyTitle: '', graduationYear: '' },
+    job: [],
+  };
 
-  const [educationInfo, setEducationInfo] = useImmer({
-    school: 'Example University',
-    studyTitle: 'Computer Science',
-    graduationYear: '2022',
-  });
+  const [generalInfo, setGeneralInfo] = useImmer(emptyInfo.general);
+  const [educationInfo, setEducationInfo] = useImmer(emptyInfo.education);
+  const [jobInfo, setJobList] = useImmer(emptyInfo.job);
 
-  const testJobInfo = [
-    {
-      company: 'Business Corp.',
-      position: 'Advisor',
-      responsibilities: 'Doing important things',
-      employmentStartDate: '1996',
-      employmentEndDate: '2023',
-      id: 'onlyfortesting',
-    },
-  ];
+  // useCallback() is used here to allow insertDummyData to be called outside useEffect()
+  const insertDummyData = useCallback(() => {
+    setGeneralInfo({
+      fullName: 'John Doe',
+      email: 'johndoe@example.com',
+      phone: '555-123-4567',
+    });
 
-  // const [generalInfo, setGeneralInfo] = useImmer({
-  //   fullName: '',
-  //   email: '',
-  //   phone: '',
-  // });
+    setEducationInfo({
+      school: 'Example University',
+      studyTitle: 'Computer Science',
+      graduationYear: '2022',
+    });
 
-  // const [educationInfo, setEducationInfo] = useImmer({
-  //   school: '',
-  //   studyTitle: '',
-  //   graduationYear: '',
-  // });
+    const dummyJobInfo = [
+      {
+        company: 'Business Corp.',
+        position: 'Advisor',
+        responsibilities: 'Doing important things',
+        employmentStartDate: '1996',
+        employmentEndDate: '2023',
+        id: 'dummy-id',
+      },
+    ];
 
-  // const [jobInfo, setJobList] = useImmer([]);
-  const [jobInfo, setJobList] = useImmer(testJobInfo);
+    setJobList(dummyJobInfo);
+  }, [setEducationInfo, setGeneralInfo, setJobList]);
+
+  const emptyAllInfo = useCallback(() => {
+    setGeneralInfo(emptyInfo.general);
+    setEducationInfo(emptyInfo.education);
+    setJobList(emptyInfo.job);
+  }, [
+    emptyInfo.education,
+    emptyInfo.general,
+    emptyInfo.job,
+    setEducationInfo,
+    setGeneralInfo,
+    setJobList,
+  ]);
+
+  function handleEmptyAllButton() {
+    if (
+      window.confirm(
+        'Are you sure you want to reset the form? All your input will be lost.',
+      )
+    ) {
+      emptyAllInfo();
+    }
+  }
 
   function addJob(e) {
     // Source: https://stackoverflow.com/a/66407161
@@ -86,6 +110,10 @@ function App() {
     <>
       <h1>CV generator</h1>
       <h2>Generate a simple CV in minutes</h2>
+      <button onClick={handleEmptyAllButton}>Reset form</button>
+      <button onClick={insertDummyData}>
+        I&apos;m too lazy to type. Just fill in some example information.
+      </button>
       <Form
         generalInfo={generalInfo}
         setGeneralInfo={setGeneralInfo}

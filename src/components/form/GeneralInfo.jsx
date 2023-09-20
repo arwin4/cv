@@ -10,7 +10,7 @@ export default function GeneralInfo({ generalInfo, handleGeneralInfoChange }) {
             name="fullName"
             type="text"
             id="full_name"
-            defaultValue={generalInfo.fullName}
+            value={generalInfo.fullName}
             onChange={handleGeneralInfoChange}
           />
         </div>
@@ -20,7 +20,7 @@ export default function GeneralInfo({ generalInfo, handleGeneralInfoChange }) {
             name="email"
             type="email"
             id="email"
-            defaultValue={generalInfo.email}
+            value={generalInfo.email}
             onChange={handleGeneralInfoChange}
           />
         </div>
@@ -30,7 +30,7 @@ export default function GeneralInfo({ generalInfo, handleGeneralInfoChange }) {
             name="phone"
             type="tel"
             id="phone"
-            defaultValue={generalInfo.phone}
+            value={generalInfo.phone}
             onChange={handleGeneralInfoChange}
           />
         </div>
