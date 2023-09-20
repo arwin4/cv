@@ -28,8 +28,6 @@ export default function GeneratedCV({
     </div>
   ));
 
-  console.log(jobInfo);
-
   return (
     <>
       <div className="generated-cv">
