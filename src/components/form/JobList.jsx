@@ -9,8 +9,8 @@ export default function JobOverview({
   handleEditJobButton,
 }) {
   const jobs = jobInfo.map((job) => (
-    <>
-      <li key={job.id}>{job.company}</li>
+    <li key={job.id}>
+      {job.company}
       <span className="list-icon-wrapper">
         {' '}
         <Icon
@@ -28,7 +28,7 @@ export default function JobOverview({
           onClick={() => deleteJob(job.id)}
         />
       </span>
-    </>
+    </li>
   ));
 
   return (
