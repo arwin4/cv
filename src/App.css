@@ -160,13 +160,9 @@ input {
 
 .generate-cv-wrapper {
   display: grid;
+  row-gap: 10px;
 
   .revision-disclaimer {
     text-align: center;
-    font-size: 0.9rem;
-
-    @media (max-width: 600px) {
-      margin-top: 20px;
-    }
   }
 }
