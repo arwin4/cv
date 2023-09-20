@@ -1,7 +1,5 @@
 /* eslint-disable react/prop-types */
 
-import '../styles/FormSection.css';
-
 export default function FormSection({ sectionTitle, children }) {
   return (
     <div className="form-section">

@@ -45,14 +45,10 @@ export default function JobOverview({
 
       {jobInfo.length < 3 && (
         <>
-          <span
-            className="add-job-button"
-            type="button"
-            onClick={showNewJobForm}
-          >
+          <button className="add-job-button" onClick={showNewJobForm}>
             <InlineIcon aria-label="Add new job" icon="lucide:plus-square" />{' '}
             Add another job
-          </span>
+          </button>
         </>
       )}
     </div>

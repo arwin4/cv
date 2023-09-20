@@ -116,14 +116,14 @@ export default function Form({
         ></JobOverview>
       </FormSection>
       <div className="generate-cv-wrapper">
-        <span className="generate-cv-button" type="button" onClick={showCV}>
+        <button className="generate-cv-button" type="button" onClick={showCV}>
           <Icon
             className="generate-cv-icon"
             aria-label="Generate CV"
             icon="lucide:sparkles"
           />
           Generate CV!
-        </span>
+        </button>
         <div className="revision-disclaimer">
           You&apos;ll be able to edit your CV after generating.
         </div>

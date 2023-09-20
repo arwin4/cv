@@ -1,5 +1,8 @@
 /* eslint-disable react/prop-types */
 
+import { InlineIcon } from '@iconify/react';
+import '../../styles/EditJob.css';
+
 export default function handleEditJobButton({
   jobToEdit,
   handleJobChange,
@@ -67,8 +70,8 @@ export default function handleEditJobButton({
           />
         </div>
       </form>
-      <button form="edit-job-form" className="submit-job">
-        Save and return
+      <button form="edit-job-form" className="submit-job-button">
+        <InlineIcon icon="lucide:save" /> Save and return
       </button>
     </div>
   );
