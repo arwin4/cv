@@ -1,8 +1,11 @@
 /* eslint-disable react/prop-types */
 
+import { InlineIcon } from '@iconify/react';
+import '../../styles/Job.css';
+
 export default function Job({ handleJobSubmit, hideNewJobForm }) {
   return (
-    <div className="job-info">
+    <div className="new-job">
       <h1>Add a new work experience</h1>
       <form id="job-form" onSubmit={handleJobSubmit}>
         <div className="input-wrapper">
@@ -41,12 +44,19 @@ export default function Job({ handleJobSubmit, hideNewJobForm }) {
           />
         </div>
       </form>
-      <button className="cancel" onClick={hideNewJobForm}>
-        Cancel
-      </button>
-      <button form="job-form" type="submit" className="submit-job">
-        Add this job (you can edit it later)
-      </button>
+      <div className="button-row">
+        <button className="cancel generic-button" onClick={hideNewJobForm}>
+          <InlineIcon aria-label="cancel" icon="lucide:x" /> Cancel
+        </button>
+        <button
+          form="job-form"
+          type="submit"
+          className="submit-job generic-button"
+        >
+          <InlineIcon aria-label="add job" icon="lucide:plus-circle" />
+          Add this job (you can edit it later)
+        </button>
+      </div>
     </div>
   );
 }

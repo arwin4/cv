@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 
 import '../styles/GeneratedCV.css';
+import { InlineIcon } from '@iconify/react';
 
 export default function GeneratedCV({
   generalInfo,
@@ -69,7 +70,10 @@ export default function GeneratedCV({
           <div className="jobs">{jobs}</div>
         </div>
       </div>
-      <button onClick={hideCV}>Edit</button>
+      <button className="edit generic-button" onClick={hideCV}>
+        <InlineIcon aria-label="go back and edit CV" icon="lucide:arrow-left" />{' '}
+        Revise CV
+      </button>
     </>
   );
 }

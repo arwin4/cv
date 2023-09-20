@@ -8,7 +8,7 @@ import Job from './form/Job';
 import EditJob from './form/EditJob';
 import { useImmer } from 'use-immer';
 import { produce } from 'immer';
-import { Icon } from '@iconify/react';
+import { Icon, InlineIcon } from '@iconify/react';
 
 export default function Form({
   generalInfo,
@@ -20,6 +20,8 @@ export default function Form({
   setJobList,
   deleteJob,
   showCV,
+  handleEmptyAllButton,
+  insertDummyData,
 }) {
   function handleGeneralInfoChange(e) {
     setGeneralInfo((draft) => {
@@ -94,40 +96,61 @@ export default function Form({
   }
 
   return (
-    <div className="form">
-      <FormSection className="general-info" sectionTitle="Personal information">
-        <GeneralInfo
-          generalInfo={generalInfo}
-          handleGeneralInfoChange={handleGeneralInfoChange}
-        ></GeneralInfo>
-      </FormSection>
-      <FormSection className="education-info" sectionTitle="Education">
-        <Education
-          educationInfo={educationInfo}
-          handleEducationInfoChange={handleEducationInfoChange}
-        ></Education>
-      </FormSection>
-      <FormSection className="job-info" sectionTitle="Work history">
-        <JobOverview
-          showNewJobForm={showNewJobForm}
-          jobInfo={jobInfo}
-          deleteJob={deleteJob}
-          handleEditJobButton={handleEditJobButton}
-        ></JobOverview>
-      </FormSection>
-      <div className="generate-cv-wrapper">
-        <button className="generate-cv-button" type="button" onClick={showCV}>
-          <Icon
-            className="generate-cv-icon"
-            aria-label="Generate CV"
-            icon="lucide:sparkles"
-          />
-          Generate CV!
+    <>
+      <div className="button-row vertical">
+        <button className="generic-button" onClick={handleEmptyAllButton}>
+          <InlineIcon
+            aria-label="empty all fields"
+            icon={'lucide:eraser'}
+          ></InlineIcon>
+          Empty all fields
         </button>
-        <div className="revision-disclaimer">
-          You&apos;ll be able to edit your CV after generating.
+        <button className="generic-button" onClick={insertDummyData}>
+          <InlineIcon
+            aria-label="Fill in example information"
+            icon={'lucide:sparkle'}
+          ></InlineIcon>
+          I&apos;m too lazy to type. Just fill in some example information.
+        </button>
+      </div>
+      <div className="form">
+        <FormSection
+          className="general-info"
+          sectionTitle="Personal information"
+        >
+          <GeneralInfo
+            generalInfo={generalInfo}
+            handleGeneralInfoChange={handleGeneralInfoChange}
+          ></GeneralInfo>
+        </FormSection>
+        <FormSection className="education-info" sectionTitle="Education">
+          <Education
+            educationInfo={educationInfo}
+            handleEducationInfoChange={handleEducationInfoChange}
+          ></Education>
+        </FormSection>
+        <FormSection className="job-info" sectionTitle="Work history">
+          <JobOverview
+            showNewJobForm={showNewJobForm}
+            jobInfo={jobInfo}
+            deleteJob={deleteJob}
+            handleEditJobButton={handleEditJobButton}
+          ></JobOverview>
+        </FormSection>
+        <div className="generate-cv-wrapper">
+          <button className="generate-cv-button" type="button" onClick={showCV}>
+            <Icon
+              className="generate-cv-icon"
+              aria-label="Generate CV"
+              icon="lucide:sparkles"
+            />
+            Generate CV!
+          </button>
+          <div className="revision-disclaimer">
+            You&apos;ll be able to edit your CV after generating.
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }

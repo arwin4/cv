@@ -109,11 +109,7 @@ function App() {
   return (
     <>
       <h1>CV generator</h1>
-      <h2>Generate a simple CV in minutes</h2>
-      <button onClick={handleEmptyAllButton}>Reset form</button>
-      <button onClick={insertDummyData}>
-        I&apos;m too lazy to type. Just fill in some example information.
-      </button>
+      <h2>Create a simple CV in minutes</h2>
       <Form
         generalInfo={generalInfo}
         setGeneralInfo={setGeneralInfo}
@@ -124,6 +120,8 @@ function App() {
         setJobList={setJobList}
         deleteJob={deleteJob}
         showCV={showCV}
+        handleEmptyAllButton={handleEmptyAllButton}
+        insertDummyData={insertDummyData}
       ></Form>
     </>
   );

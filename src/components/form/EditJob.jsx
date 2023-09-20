@@ -70,7 +70,7 @@ export default function handleEditJobButton({
           />
         </div>
       </form>
-      <button form="edit-job-form" className="submit-job-button">
+      <button form="edit-job-form" className="submit-job-button generic-button">
         <InlineIcon icon="lucide:save" /> Save and return
       </button>
     </div>
