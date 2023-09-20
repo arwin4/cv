@@ -121,8 +121,7 @@ input {
   place-items: center;
   column-gap: 5px;
 
-  &:hover,
-  &:focus {
+  &:hover {
     background-color: hsl(0, 0%, 65%);
     color: inherit;
     cursor: pointer;
