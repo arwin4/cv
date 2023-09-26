@@ -18,7 +18,7 @@ export default function handleEditJobButton({
             name="company"
             type="text"
             id="company"
-            value={jobToEdit.company}
+            defaultValue={jobToEdit.company}
             onChange={(e) => handleJobChange(jobToEdit.id, e)}
           />
         </div>
@@ -28,7 +28,7 @@ export default function handleEditJobButton({
             name="position"
             type="text"
             id="position"
-            value={jobToEdit.position}
+            defaultValue={jobToEdit.position}
             onChange={(e) => handleJobChange(jobToEdit.id, e)}
           />
         </div>
@@ -38,7 +38,7 @@ export default function handleEditJobButton({
             name="responsibilities"
             type="text"
             id="responsibilities"
-            value={jobToEdit.responsibilities}
+            defaultValue={jobToEdit.responsibilities}
             onChange={(e) => handleJobChange(jobToEdit.id, e)}
           />
         </div>{' '}
@@ -48,7 +48,7 @@ export default function handleEditJobButton({
             name="employmentStartDate"
             type="text"
             id="employment-start-date"
-            value={jobToEdit.employmentStartDate}
+            defaultValue={jobToEdit.employmentStartDate}
             onChange={(e) => handleJobChange(jobToEdit.id, e)}
           />
         </div>
@@ -65,7 +65,7 @@ export default function handleEditJobButton({
             name="employmentEndDate"
             type="text"
             id="employment-end-date"
-            value={jobToEdit.employmentEndDate}
+            defaultValue={jobToEdit.employmentEndDate}
             onChange={(e) => handleJobChange(jobToEdit.id, e)}
           />
         </div>
