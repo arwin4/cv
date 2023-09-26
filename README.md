@@ -1,8 +1,14 @@
-# React + Vite
+# CV generator
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a very simple CV generator for [The Odin Project](https://www.theodinproject.com/lessons/node-path-react-new-cv-application).
 
-Currently, two official plugins are available:
+It is my first project using React.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Some notable features:
+
+- Optimized for desktop and mobile.
+- Uses immer for simplified state updates.
+- I've paid special attention to making the form accessible using focus styles and tab order.
+- CSS rules at component level where possible.
+
+A linter warning for prop type checking is surpressed, because this discussed later in the Odin curriculum.
