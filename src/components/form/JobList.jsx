@@ -13,22 +13,27 @@ export default function JobOverview({
       {job.company}
       <span className="list-icon-wrapper">
         {' '}
-        <Icon
-          tabIndex="0"
-          type="button"
-          className="edit"
-          aria-label="Edit this job"
-          icon="lucide:edit"
+        <button
+          className="icon-button"
           onClick={() => handleEditJobButton(job.id)}
-        />
-        <Icon
-          tabIndex="0"
-          type="button"
-          className="delete"
-          aria-label="Delete this job"
-          icon="lucide:trash-2"
-          onClick={() => deleteJob(job.id)}
-        />
+        >
+          <Icon
+            tabIndex="0"
+            type="button"
+            className="edit"
+            aria-label="Edit this job"
+            icon="lucide:edit"
+          />
+        </button>
+        <button className="icon-button" onClick={() => deleteJob(job.id)}>
+          <Icon
+            tabIndex="0"
+            type="button"
+            className="delete"
+            aria-label="Delete this job"
+            icon="lucide:trash-2"
+          />
+        </button>
       </span>
     </li>
   ));

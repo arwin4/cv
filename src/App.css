@@ -120,7 +120,8 @@ input {
   place-items: center;
   column-gap: 5px;
 
-  &:hover {
+  &:hover,
+  &:focus {
     background-color: hsl(0, 0%, 65%);
     color: inherit;
     cursor: pointer;
@@ -129,6 +130,10 @@ input {
   &:active {
     background-color: hsl(0, 0%, 75%);
   }
+}
+
+.icon-button {
+  all: unset;
 }
 
 .generate-cv-button {
