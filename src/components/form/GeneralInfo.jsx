@@ -10,6 +10,7 @@ export default function GeneralInfo({ generalInfo, handleGeneralInfoChange }) {
             name="fullName"
             type="text"
             id="full_name"
+            autoComplete="name"
             value={generalInfo.fullName}
             onChange={handleGeneralInfoChange}
           />
@@ -20,6 +21,7 @@ export default function GeneralInfo({ generalInfo, handleGeneralInfoChange }) {
             name="email"
             type="email"
             id="email"
+            autoComplete="email"
             value={generalInfo.email}
             onChange={handleGeneralInfoChange}
           />
@@ -30,6 +32,7 @@ export default function GeneralInfo({ generalInfo, handleGeneralInfoChange }) {
             name="phone"
             type="tel"
             id="phone"
+            autoComplete="phone"
             value={generalInfo.phone}
             onChange={handleGeneralInfoChange}
           />
