@@ -14,7 +14,7 @@ export default function JobOverview({
       <span className="list-icon-wrapper">
         {' '}
         <Icon
-          tabindex="0"
+          tabIndex="0"
           type="button"
           className="edit"
           aria-label="Edit this job"
@@ -22,7 +22,7 @@ export default function JobOverview({
           onClick={() => handleEditJobButton(job.id)}
         />
         <Icon
-          tabindex="0"
+          tabIndex="0"
           type="button"
           className="delete"
           aria-label="Delete this job"
